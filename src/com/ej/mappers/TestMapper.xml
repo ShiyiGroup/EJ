@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ej.mappers.TestMapper">
+
+<!-- 查询test的全部信息 -->
+	<select id="findAll" resultType="com.ej.models.Test">
+	select * from test;
+	</select>
+	
+	<!-- 通过id来查询test信息 -->
+	<select id="findById" parameterType="int" resultType="com.ej.models.Test"> 
+	select * from test where id=#{id}	
+	</select>
+	
+	<!-- 通过id来查询test信息 -->
+	<select id="findByName" parameterType="java.lang.String" resultType="com.ej.models.Test"> 
+	select * from test where username=#{username}	
+	</select>
+	
+	<!-- 添加test信息 -->
+	<insert id="add" parameterType="com.ej.models.Test" useGeneratedKeys="true" keyProperty="id">
+	insert into test(username,password) 
+	values(#{username}, #{password})	
+	</insert>
+	
+	<!-- 跟新信息 -->
+	<update id="modify" parameterType="com.ej.models.Test">
+	update test set
+	username=#{username} ,
+	password=#{password}
+	where id=#{id}
+	</update>
+	
+	<!-- 删除 -->
+	<delete id="delete">
+	delete from test where id=#{id}
+	</delete>
+
+</mapper>
