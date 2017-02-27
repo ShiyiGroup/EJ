@@ -46,8 +46,10 @@ public class TestDao implements TestMapper{
 	@Override
 	public Test findByName(String username) {
 		// TODO Auto-generated method stub
-		return testMapper.findByName(username);
+		return null;
 	}
+
+
 	
 
 }

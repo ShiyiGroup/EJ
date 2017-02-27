@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ej.mappers.UserMapper">
+
+<!-- 查询test的全部信息 -->
+	<select id="findAll" resultType="com.ej.models.User">
+	select * from user;
+	</select>
+	
+	<select id="findByPhone" parameterType="java.lang.String" resultType="com.ej.models.User"> 
+	select * from user where phone=#{phone}	
+	</select>
+	
+	<!-- 添加test信息 -->
+	<insert id="add" parameterType="com.ej.models.User" useGeneratedKeys="true" keyProperty="id">
+	insert into user(username,phone,password) 
+	values(#{username}, #{phone}, #{password})	
+	</insert>
+	
+	<!-- 跟新信息 -->
+	<update id="update" parameterType="com.ej.models.User">
+	update user set
+	username=#{username} ,
+	phone=#{phone} ,
+	password=#{password}
+	where phone=#{phone}
+	</update>
+	
+
+</mapper>

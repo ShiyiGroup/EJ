@@ -10,5 +10,8 @@
     <table schema="ej" tableName="auto" >
       <generatedKey column="id" sqlStatement="mysql" identity="true" />  
     </table>
+        <table schema="ej" tableName="user" >
+      <generatedKey column="id" sqlStatement="mysql" identity="true" />  
+    </table>
   </context>
 </generatorConfiguration>
